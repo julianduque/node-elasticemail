@@ -1,0 +1,29 @@
+{
+  "name": "elasticemail",
+  "version": "0.0.1",
+  "description": "Elasticemail API Module",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/julianduque/node-elasticemail.git"
+  },
+  "keywords": [
+    "email",
+    "elasticemail",
+    "massive",
+    "email"
+  ],
+  "author": "Julian Duque",
+  "license": "MIT",
+  "dependencies": {
+    "querystring": "*"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "chai-factories": "*",
+    "mocha": "*"
+  }
+}
