@@ -7,4 +7,5 @@ exports.login = function(creds) {
 
 // Add modules
 exports.lists = require('./modules/lists');
+exports.mailer = require('./modules/mailer');
 

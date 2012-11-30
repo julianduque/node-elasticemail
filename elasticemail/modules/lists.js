@@ -4,7 +4,7 @@ var api = require('../api')
 var parser = new xml2js.Parser({ explicitRoot: false, ignoreAttrs: false, mergeAttrs: true });
 
 exports.createContact = function(contact) {
-  api.request('/lists/create-contact', 'post', { email: contact.email }, function(result) {
+  api.request('/lists/create-contact', 'post', contact, function(result) {
     console.log(result);
   });
 };
