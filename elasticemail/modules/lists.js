@@ -1,4 +1,7 @@
-var api = require('../api');
+var api = require('../api')
+  , xml2js = require('xml2js');
+
+var parser = new xml2js.Parser({ explicitRoot: false, ignoreAttrs: false, mergeAttrs: true });
 
 exports.createContact = function(contact) {
   api.request('/lists/create-contact', 'post', { email: contact.email }, function(result) {
@@ -37,15 +40,17 @@ exports.removeContact = function(email, listname) {
 };
 
 exports.getLists = function(cb) {
-  api.request('/lists/get', 'post', {}, function(result) {
-    console.log(result);
-    cb(result);
+  api.request('/lists/get', 'get', {}, function(response) {
+    parser.parseString(response, function(err, result) {
+      cb(result.list);
+    });
   });
 };
 
 exports.getContacts = function(listname, cb) {
-  api.request('/lists/get-contacts', 'post', { listname: listname }, function(result) {
-    console.log(result);
-    cb(result);
+  api.request('/lists/get-contacts', 'get', { listname: listname }, function(response) {
+    parser.parseString(response, function(err, result) {
+      cb(result);
+    });
   });
 };

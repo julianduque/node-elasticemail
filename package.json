@@ -19,7 +19,8 @@
   "author": "Julian Duque",
   "license": "MIT",
   "dependencies": {
-    "querystring": "*"
+    "request": "~2.12.0",
+    "xml2js": "~0.2.2"
   },
   "devDependencies": {
     "chai": "*",
