@@ -1,8 +1,39 @@
 # Node Elasticemail
 
-A Node.js [Elasticemail](http://www.elasticemail.com) API module
+A Node.js module for [Elasticemail](http://www.elasticemail.com)
 
-This module is on development, not ready for use.
+Installation:
+
+	$ npm install elasticemail
+
+Usage:
+	
+	var elasticemail = require('elasticemail');
+	elasticemail.login({ 
+		username: 'username@example.org', 
+		apiKey: 'xxxxx-xx-xx-xxx' 
+	});
+	
+	var options = {
+ 		from: 'julian@exmaple.org',
+  		from_name: 'Julian Duque',
+  		to: 'username@exaple.org',
+  		subject: 'Hello',
+  		body_text: 'Hello World!'
+	};
+
+
+	elasticemail.mailer.send(options, function(result) {
+  		console.log(result);
+	});
+	
+### API Commands
+	* Mailer
+	* Lists
+	* Log
+	* Attachments (pending)
+	* Mail merge (pending)
+	
 
 ---
 ### The MIT License (MIT)
