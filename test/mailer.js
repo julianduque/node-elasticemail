@@ -16,6 +16,10 @@ describe('elasticemail', function() {
       expect(elasticemail.mailer).to.respondTo('status');
     });
 
+    it('should respond to accountDetails', function() {
+      expect(elasticemail.mailer).to.respondTo('accountDetails');
+    });
+
   });
 
 });

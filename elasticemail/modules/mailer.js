@@ -15,4 +15,12 @@ exports.status = function(jobId, cb) {
       cb(result);
     });
   });
-}
+};
+
+exports.accountDetails = function(cb) {
+  api.request('/mailer/account-details', 'get', function(response) {
+    parser.parseString(response, function(err, result) {
+      cb(result);
+    });
+  });
+};
