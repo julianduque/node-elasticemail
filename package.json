@@ -19,12 +19,13 @@
   "author": "Julian Duque",
   "license": "MIT",
   "dependencies": {
-    "request": "~2.12.0",
-    "xml2js": "~0.2.2"
+    "request": "~2.16.6",
+    "xml2js": "~0.2.6"
   },
   "devDependencies": {
-    "chai": "*",
-    "chai-factories": "*",
-    "mocha": "*"
+    "chai": "~1.5.0",
+    "mocha": "~1.9.0",
+    "chai-factories": "~0.1.0",
+    "chai-http": "~0.3.0"
   }
 }
