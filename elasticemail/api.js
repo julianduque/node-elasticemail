@@ -24,8 +24,6 @@ Api.prototype.request = function(path, method, data, cb) {
   }
 
   request(options, function(err, res, body) {
-    console.log(res.statusCode);
-    console.log(err);
     cb(err, body);
   });
 
