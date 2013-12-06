@@ -1,21 +1,30 @@
-var chai = require('chai')
-  , expect = require('chai').expect
-  , elasticemail = require('../elasticemail/');
+var chai         = require('chai'),
+    assert       = require('chai').assert,
+    elasticemail = require('../elasticemail/')
+    Client       = require('../elasticemail/client'),
+    config       = require('./fixtures/config');
 
 describe('elasticemail', function() {
 
-  it('should respond to login', function() {
-    expect(elasticemail).to.respondTo('login');
-  });
+  describe('elasticemail.createClient', function () {
 
-  describe('#login', function() {
-
-    it('should store credentials', function() {
-      var creds = { username: 'aaaa', apiKey: 'bbbb' };
-      elasticemail.login(creds);
-      expect(credentials).to.equal(creds);
+    it('should create an elasticemail client', function () {
+      var client = elasticemail.createClient(config);
+      assert.ok(client instanceof Client);
     });
 
+    it('should set the username and password', function () {
+      var client = elasticemail.createClient(config);
+
+      assert.equal(config.username, client.username);
+      assert.equal(config.apiKey, client.apiKey);
+    });
+
+    it('should set the API endpoint', function () {
+      var client = elasticemail.createClient(config);
+
+      assert.equal(config.endpoint, client.endpoint);
+    });
   });
 
 });

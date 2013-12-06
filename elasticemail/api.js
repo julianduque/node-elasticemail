@@ -1,12 +1,19 @@
 var request = require('request');
 
-exports.request = function(path, method, data, cb) {
+function Api(opts) {
+  opts = opts || {};
+  this.username = opts.username;
+  this.apiKey = opts.apiKey;
+  this.endpoint = opts.endpoint || 'https://api.elasticemail.com';
+}
 
-  data['username'] = credentials.username;
-  data['api_key'] = credentials.apiKey;
+Api.prototype.request = function(path, method, data, cb) {
+
+  data['username'] = this.username;
+  data['api_key'] = this.apiKey;
 
   var options = {
-    url: 'https://api.elasticemail.com' + path,
+    url: this.endpoint + path,
     method: method
   };
 
@@ -17,7 +24,11 @@ exports.request = function(path, method, data, cb) {
   }
 
   request(options, function(err, res, body) {
-    cb(body);
+    console.log(res.statusCode);
+    console.log(err);
+    cb(err, body);
   });
 
 };
+
+module.exports = Api;

@@ -1,0 +1,5 @@
+{
+  "username": "user-test",
+  "apiKey": "api-key-test",
+  "endpoint": "http://localhost:12345"
+}

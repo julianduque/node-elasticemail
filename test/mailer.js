@@ -1,23 +1,23 @@
-var chai = require('chai')
-  , expect = require('chai').expect
-  , factories = require('chai-factories')
-  , elasticemail = require('../elasticemail/');
-
-chai.use(factories);
+var chai         = require('chai'),
+    expect       = require('chai').expect,
+    assert       = require('chai').assert,
+    elasticemail = require('../elasticemail/'),
+    config       = require('./fixtures/config');
 
 describe('elasticemail', function() {
+  var client = elasticemail.createClient(config);
 
   describe('mailer', function() {
     it('should respond to send', function() {
-      expect(elasticemail.mailer).to.respondTo('send');
+      expect(client.mailer).to.respondTo('send');
     });
 
     it('should respond to status', function() {
-      expect(elasticemail.mailer).to.respondTo('status');
+      expect(client.mailer).to.respondTo('status');
     });
 
     it('should respond to accountDetails', function() {
-      expect(elasticemail.mailer).to.respondTo('accountDetails');
+      expect(client.mailer).to.respondTo('accountDetails');
     });
 
   });

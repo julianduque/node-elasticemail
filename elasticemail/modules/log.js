@@ -1,18 +1,33 @@
-var api = require('../api')
-  , xml2js = require('xml2js');
+var xml2js = require('xml2js');
 
-var parser = new xml2js.Parser({ explicitRoot: false, ignoreAttrs: false, mergeAttrs: true });
+var parser = new xml2js.Parser({
+  explicitRoot: false,
+  ignoreAttrs: false,
+  mergeAttrs: true
+});
 
-exports.log = function(options, cb) {
-  api.request('/mailer/status/log', 'get', options, function(result) {
+function Log(api) {
+  if (!(this instanceof Log)) {
+    return new Log(api);
+  }
+
+  this.api = api;
+}
+
+Log.prototype.log = function(options, cb) {
+  this.api.request('/mailer/status/log', 'get', options, function(err, result) {
     options.format = options.format || 'xml';
 
+    if (err) {
+      return cb(err);
+    }
+
     if(options.format === 'xml') {
-      parser.parseString(response, function(err, result) {
-        cb(result);
-      });
+      parser.parseString(response, cb);
     } else {
-      cb(result);
+      cb(err, result);
     }
   });
 };
+
+module.exports = Log;

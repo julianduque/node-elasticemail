@@ -1,6 +1,6 @@
 {
   "name": "elasticemail",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Elasticemail API Module",
   "main": "index.js",
   "scripts": {
@@ -16,16 +16,16 @@
     "massive",
     "email"
   ],
-  "author": "Julian Duque",
+  "author": "Julian Duque <julianduquej@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "request": "~2.16.6",
-    "xml2js": "~0.2.6"
+    "request": "~2.28.0",
+    "xml2js": "~0.4.0"
   },
   "devDependencies": {
-    "chai": "~1.5.0",
-    "mocha": "~1.9.0",
-    "chai-factories": "~0.1.0",
-    "chai-http": "~0.3.0"
+    "chai": "~1.8.1",
+    "mocha": "~1.15.1",
+    "hock": "~0.2.0",
+    "sinon": "~1.7.3"
   }
 }

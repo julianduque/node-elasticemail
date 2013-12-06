@@ -1,15 +1,15 @@
-var chai = require('chai')
-  , expect = require('chai').expect
-  , factories = require('chai-factories')
-  , elasticemail = require('../elasticemail/');
-
-chai.use(factories);
+var chai         = require('chai'),
+    expect       = require('chai').expect,
+    assert       = require('chai').assert,
+    elasticemail = require('../elasticemail/'),
+    config       = require('./fixtures/config');
 
 describe('elasticemail', function() {
+  var client = elasticemail.createClient(config);
 
   describe('log', function() {
     it('should respond to log', function() {
-      expect(elasticemail.log).to.respondTo('log');
+      expect(client.log).to.respondTo('log');
     });
 
   });

@@ -1,43 +1,52 @@
 # Node Elasticemail
 
+**Note: this is a work in progress**
+
 A Node.js module for [Elasticemail](http://www.elasticemail.com)
 
 Installation:
 
-	$ npm install elasticemail
+`````
+$ npm install elasticemail
+```
 
 Usage:
-	
-	var elasticemail = require('elasticemail');
-	elasticemail.login({ 
-		username: 'username@example.org', 
-		apiKey: 'xxxxx-xx-xx-xxx' 
-	});
-	
-	var options = {
- 		from: 'julian@exmaple.org',
-  		from_name: 'Julian Duque',
-  		to: 'username@exaple.org',
-  		subject: 'Hello',
-  		body_text: 'Hello World!'
-	};
+``` js
+var elasticemail = require('elasticemail');
+var client = elasticemail.createClient({
+  username: 'my-username',
+  apiKey: 'my-api-key-xxx'
+});
+
+var msg = {
+  from: 'julian@exmaple.org',
+  from_name: 'Julian Duque',
+  to: 'username@exaple.org',
+  subject: 'Hello',
+  body_text: 'Hello World!'
+};
 
 
-	elasticemail.mailer.send(options, function(result) {
-  		console.log(result);
-	});
-	
+client.mailer.send(msg, function(err, result) {
+  if (err) {
+    return console.error(err);
+  }
+
+  console.log(result);
+});
+```
+
 ### API Commands
-	* Mailer
-	* Lists
-	* Log
-	* Attachments (pending)
-	* Mail merge (pending)
-	
+* Mailer
+* Lists
+* Log
+* Attachments (pending)
+* Mail merge (pending)
+* SMS (pending)
 
 ---
 ### The MIT License (MIT)
-Copyright (c) 2012 Julian Duque
+Copyright (c) 2012-2013 Julian Duque
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
