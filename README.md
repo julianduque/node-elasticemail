@@ -5,7 +5,7 @@ A Node.js module for [Elasticemail](http://www.elasticemail.com)
 
 Installation:
 
-`````
+```
 $ npm install elasticemail
 ```
 
