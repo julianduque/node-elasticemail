@@ -20,11 +20,10 @@ var client = elasticemail.createClient({
 var msg = {
   from: 'julian@exmaple.org',
   from_name: 'Julian Duque',
-  to: 'username@exaple.org',
+  to: 'username@example.org',
   subject: 'Hello',
   body_text: 'Hello World!'
 };
-
 
 client.mailer.send(msg, function(err, result) {
   if (err) {
