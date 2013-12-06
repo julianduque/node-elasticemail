@@ -1,6 +1,5 @@
 # Node Elasticemail
-
-**Note: this is a work in progress**
+[![Build Status](https://travis-ci.org/julianduque/node-elasticemail.png?branch=master)](https://travis-ci.org/julianduque/node-elasticemail)
 
 A Node.js module for [Elasticemail](http://www.elasticemail.com)
 
