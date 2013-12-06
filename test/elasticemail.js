@@ -6,7 +6,7 @@ var chai         = require('chai'),
 
 describe('elasticemail', function() {
 
-  describe('elasticemail.createClient', function () {
+  describe('createClient', function () {
 
     it('should create an elasticemail client', function () {
       var client = elasticemail.createClient(config);

@@ -2,13 +2,17 @@ var chai         = require('chai'),
     expect       = require('chai').expect,
     assert       = require('chai').assert,
     elasticemail = require('../elasticemail/'),
-    config       = require('./fixtures/config');
-
+    config       = require('./fixtures/config'),
+    Lists        = require('../elasticemail/modules/lists');
 
 describe('elasticemail', function() {
   var client = elasticemail.createClient(config);
 
   describe('lists', function() {
+    it('should be an instance of Lists', function () {
+      assert.ok(client.lists instanceof Lists);
+    });
+
     it('should respond to createContact', function() {
       expect(client.lists).to.respondTo('createContact');
     });
