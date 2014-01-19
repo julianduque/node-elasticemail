@@ -20,6 +20,7 @@
   "license": "MIT",
   "dependencies": {
     "request": "~2.28.0",
+    "async" : "~0.2.x",
     "xml2js": "~0.4.0"
   },
   "devDependencies": {
