@@ -1,7 +1,7 @@
 # Node Elasticemail
 [![Build Status](https://travis-ci.org/julianduque/node-elasticemail.png?branch=master)](https://travis-ci.org/julianduque/node-elasticemail)
 
-A Node.js module for [Elasticemail](http://www.elasticemail.com)
+A Node.js module for [Elasticemail](http://www.elasticemail.com) with Attachment Support
 
 Installation:
 
@@ -22,7 +22,11 @@ var msg = {
   from_name: 'Julian Duque',
   to: 'username@example.org',
   subject: 'Hello',
-  body_text: 'Hello World!'
+  body_text: 'Hello World!',
+  attachments : [{
+      name : 'FileName.pdf',
+      buffer : <Buffer object .... >  
+  }]
 };
 
 client.mailer.send(msg, function(err, result) {
@@ -38,7 +42,7 @@ client.mailer.send(msg, function(err, result) {
 * Mailer
 * Lists
 * Log
-* Attachments (pending)
+* Attachments
 * Mail merge (pending)
 * SMS (pending)
 

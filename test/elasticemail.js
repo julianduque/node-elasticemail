@@ -5,6 +5,45 @@ var chai         = require('chai'),
     config       = require('./fixtures/config');
 
 describe('elasticemail', function() {
+  
+  var endpoint = 'https://api.elasticemail.com';
+  
+  describe('api', function() {
+    
+    it('should verify 200 status for elasticemail', function(done) {
+      var request = require('request');
+
+      request(endpoint, function (error, response, body) {
+        assert.equal(+response.statusCode, 200);
+        done();
+      });
+    });
+  });
+  
+  describe('route', function(){
+    
+    it('should verify 200 status for send', function(done) {
+      var request = require('request');
+
+      request(endpoint + '/mailer/send', function (error, response, body) {
+        assert.equal(+response.statusCode, 200);
+        done();
+      });
+    });
+  });
+  
+  describe('route', function() {
+    
+    it('should verify 200 status for upload', function(done) {
+      var request = require('request');
+
+      request(endpoint + '/attachments/upload', function (error, response, body) {
+        assert.equal(+response.statusCode, 200);
+        done();
+      });
+    });
+    
+  })
 
   describe('createClient', function () {
 

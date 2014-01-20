@@ -11,19 +11,25 @@ Api.prototype.request = function(path, method, data, cb) {
 
   data['username'] = this.username;
   data['api_key'] = this.apiKey;
-
+  
   var options = {
     url: this.endpoint + path,
     method: method
-  };
+  };  
+  
+  if(data.file) {
+   data['file'] = data.file;
+   options.body = data.buffer;
+   
+   delete(data.buffer);
+  }  
 
-  if(method.toLowerCase() === 'post') {
-    options['json'] = data;
-  } else {
-    options['qs'] = data;
-  }
+  options['qs'] = data;
 
   request(options, function(err, res, body) {
+
+   console.log(err);
+  
     cb(err, body);
   });
 
