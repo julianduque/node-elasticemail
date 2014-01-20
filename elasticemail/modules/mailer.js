@@ -35,8 +35,7 @@ Mailer.prototype.send = function(msg, cb) {
                if(body) 
                   uploads.push(body.replace(/^\s+|\s+$/g,''));
 
-               next(err, uploads);
-       
+               next(err, uploads);       
             });
          });
          

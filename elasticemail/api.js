@@ -25,12 +25,9 @@ Api.prototype.request = function(path, method, data, cb) {
   }  
 
   options['qs'] = data;
-  
-  console.log(options);
 
   request(options, function(err, res, body) {
-  
-   console.log('RESPONSE');
+
    console.log(err);
   
     cb(err, body);
