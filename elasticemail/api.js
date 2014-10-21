@@ -18,7 +18,7 @@ Api.prototype.request = function(path, method, data, cb) {
   };
 
   if(method.toLowerCase() === 'post') {
-    options['json'] = data;
+    options['form'] = data;
   } else {
     options['qs'] = data;
   }
