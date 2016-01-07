@@ -1,21 +1,21 @@
-var util   = require('util'),
-    Api    = require('./api'),
-    Mailer = require('./modules/mailer'),
-    Lists  = require('./modules/lists'),
-    Log    = require('./modules/log');
+var util = require('util')
+var Api = require('./api')
+var Mailer = require('./modules/mailer')
+var Lists = require('./modules/lists')
+var Log = require('./modules/log')
 
-function Client(opts) {
+function Client (opts) {
   if (!(this instanceof Client)) {
-    return new Client(opts);
+    return new Client(opts)
   }
 
-  Client.super_.call(this, opts);
+  Client.super_.call(this, opts)
 
-  this.mailer = new Mailer(this);
-  this.lists  = new Lists(this);
-  this.log    = new Log(this);
+  this.mailer = new Mailer(this)
+  this.lists = new Lists(this)
+  this.log = new Log(this)
 }
 
-util.inherits(Client, Api);
+util.inherits(Client, Api)
 
-module.exports = Client;
+module.exports = Client

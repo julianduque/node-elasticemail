@@ -1,1 +1,1 @@
-module.exports = require('./elasticemail');
+module.exports = require('./elasticemail')

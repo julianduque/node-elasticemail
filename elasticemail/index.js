@@ -1,5 +1,5 @@
-var Client = require('./client');
+var Client = require('./client')
 
 exports.createClient = function (opts) {
-  return new Client(opts);
-};
+  return new Client(opts)
+}
