@@ -19,7 +19,7 @@ Mailer.prototype.send = function (msg, cb) {
 }
 
 Mailer.prototype.status = function (jobId, cb) {
-  this.api.request('/mailer/status/' + jobId, 'get', { showstatus: true }, function (err, response) {
+  this.api.request('/mailer/status/' + jobId, 'get', { showstats: true }, function (err, response) {
     if (err) {
       return cb(err)
     }
