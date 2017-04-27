@@ -49,7 +49,11 @@ describe('elasticemail', function () {
     it('should get a status', function (done) {
       nock(config.endpoint)
         .get('/mailer/status/xxx-xxx-xxx')
-        .query(true)
+        .query({
+          showstats: true,
+          api_key: config.apiKey,
+          username: config.username
+        })
         .reply(200, '<job id="xxx-xxx-xxx"><status>complete</status><recipients>3</recipients><delivered>3</delivered><failed>0</failed><pending>0</pending><opened>0</opened><clicked>0</clicked><unsubscribed>0</unsubscribed><abusereports>0</abusereports></job>')
 
       client.mailer.status('xxx-xxx-xxx', function (err, status) {
